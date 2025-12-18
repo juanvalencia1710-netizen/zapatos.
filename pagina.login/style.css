@@ -1,0 +1,429 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+body {
+    background-color: #282c34;
+    font-family: 'Dancing Script', cursive;
+}
+
+.texto-cursiva {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    font-size: 30px;
+}
+
+p {
+    font-size: 30px;
+    line-height: 1.8;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    font-size: 30px;
+    margin: 0;
+}
+
+nav ul li {
+    color: white;
+    font-size: 30px;
+    padding: 18px 20px;
+    background: rgba(255 , 255 , 255 , 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit
+}
+
+nav ul li:hover {
+    text-shadow: 0 0 8px #fff,
+                 0 0 15px #ff00ff,
+                 0 0 25px #ff00ff;
+    transform: scale(1.1);
+}
+
+nav button:hover {
+    background-color: #6c6f75;
+    transform: scale(1.05);
+}
+
+.hero {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 0 10px rgba(255 , 255 , 255 , 0.4);
+
+}
+
+.hero p {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 0 0 10px rgba(255 , 255 , 255 , 0.4);
+}
+
+.hero button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255 , 255 , 255 , 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero button:hover {
+    text-shadow: 0 0 8px #fff,
+                 0 0 15px #ff00ff,
+                 0 0 25px #ff00ff;
+    transform: scale(1.1);
+     
+}
+
+.producto {
+    text-align: center;
+    color: white;
+    padding: 15px;
+    width: 220px;
+    margin: 20px auto;
+    border-radius: 20px;
+    background: rgba(255 , 255 , 255 , 0.12);
+    transition: all 0.3s ease;
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.producto:hover {
+    text-shadow: 0 0 8px #fff,
+                 0 0 15px #ff00ff,
+                 0 0 25px #ff00ff;
+    transform: scale(1.05);
+}
+
+.producto h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    font-size: 25px;
+    color: black;
+}
+
+.producto button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255 , 255 , 255 , 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.producto button:hover {
+    text-shadow: 0 0 8px #fff,
+                 0 0 15px #ff00ff,
+                 0 0 25px #ff00ff;
+    transform: scale(1.1);
+}
+
+/* === CONTENEDOR DEL CARRITO (BOLITA) === */
+.carrito {
+    position: fixed;
+    top: 110px;
+    right: 25px;
+
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* === TEXTO / LISTA OCULTA CUANDO ES BOLITA === */
+.carrito ul,
+.carrito p {
+    display: none;
+}
+
+/* === TÍTULO (ICONO 🛒) === */
+.carrito h2 {
+    font-size: 28px;
+    margin: 0;
+    color: white;
+}
+
+/* === ESTADO ABIERTO === */
+.carrito.abierto {
+    width: 320px;
+    height: auto;
+    padding: 20px;
+
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* === MOSTRAR CONTENIDO AL ABRIR === */
+.carrito.abierto ul,
+.carrito.abierto p {
+    display: block;
+}
+
+/* === TÍTULO CUANDO ESTÁ ABIERTO === */
+.carrito.abierto h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* === FORZAR BOLITA (EVITA CONFLICTOS CON ID) === */
+.carrito:not(.abierto) {
+    width: 65px !important;
+    height: 65px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+}
+
+/* === EFECTO HOVER SOLO CUANDO ESTÁ ABIERTO === */
+.carrito.abierto:hover {
+    transform: scale(1.03);
+}
+
+/* === LISTA DEL CARRITO === */
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* === ITEM DEL CARRITO === */
+#lista-carrito li {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+    padding: 8px 12px;
+
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* === BOTÓN ELIMINAR === */
+#lista-carrito li button {
+    background: none;
+    border: 2px solid white;
+    border-radius: 8px;
+
+    color: #ff4d4d;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.icono-carrito {
+    font-size: 28px;
+}
+
+.contenido-carrito {
+    display: none;
+}
+
+.carrito.abierto .contenido-carrito {
+    display: block;
+}
+
+.carrito:not(.abierto) {
+    width: 65px;
+    height: 65px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+
+.zapatos-hombre {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.zapatos-hombre h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255 , 255 , 255 , 0.4);
+}
+
+.zapatos-mujer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.zapatos-mujer h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255 , 255 , 255 , 0.4);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #20232a;
+    color: white;
+    font-size: 16px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer p:hover {   
+    text-shadow: 0 0 8px black,
+                 0 0 15px black,
+                 0 0 25px black;
+}  
+
+/* <--Responsive--> */
+
+@media (max-width: 768px) {
+
+    .Zapatos-Hombre,
+    .Zapatos-Mujer {
+        margin: 30px auto;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .Zapatos-Hombre h2,
+    .Zapatos-Mujer h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .producto {
+        width: 100%;
+    }
+
+        .hamburguesa {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul.activo {
+        display: flex;
+    }
+
+    
+    header {
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .zapatos-hombre h2, 
+    .zapatos-mujer h2 {
+        font-size: 22px;
+    }
+
+    .producto p {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+.hamburguesa {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburguesa span {
+    width: 30px;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+}
+
+.logo {
+    color: white;
+    font-size: 30px;
+    font-family: 'Dancing Script', cursive;
+    gap: 8px;
+    align-items: center;
+    display: flex;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #2b2f38;
+}
+
